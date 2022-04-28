@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/listaFragment">
+
+    <fragment
+        android:id="@+id/listaFragment"
+        android:name="com.example.persistenciaroom.fragments.lista.ListaFragment"
+        android:label="fragment_lista"
+        tools:layout="@layout/fragment_lista" >
+        <action
+            android:id="@+id/lista_Actualizar"
+            app:destination="@id/actualizarFragment" />
+        <action
+            android:id="@+id/nuevo_Usuario"
+            app:destination="@id/nuevoUsuario" />
+    </fragment>
+    <fragment
+        android:id="@+id/nuevoUsuario"
+        android:name="com.example.persistenciaroom.fragments.agregar.NuevoUsuario"
+        android:label="fragment_nuevo_usuario"
+        tools:layout="@layout/fragment_nuevo_usuario" >
+        <action
+            android:id="@+id/ir_Lista"
+            app:destination="@id/listaFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/actualizarFragment"
+        android:name="com.example.persistenciaroom.fragments.actualizar.ActualizarFragment"
+        android:label="fragment_actualizar"
+        tools:layout="@layout/fragment_actualizar" >
+        <action
+            android:id="@+id/actualizar_Lista"
+            app:destination="@id/listaFragment" />
+        <argument
+            android:name="currentUsuario"
+            app:argType="com.example.persistenciaroom.bd.entidades.UsuariosEntity" />
+    </fragment>
+</navigation>
